@@ -1,0 +1,47 @@
+{
+  "name": "react-img-preload",
+  "version": "1.0.0",
+  "description": "Higher-order React component for image preloading",
+  "main": "dist/ImagePreload.js",
+  "scripts": {
+    "prepublish": "npm run compile",
+    "compile": "babel src --out-dir dist",
+    "lint": "eslint --ext .es ./src",
+    "test": "mocha test --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizardzloy/react-img-preload.git"
+  },
+  "keywords": [
+    "react",
+    "image",
+    "preload",
+    "higher-order-component"
+  ],
+  "author": "Vladimir Guguiev <wizardzloy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wizardzloy/react-img-preload/issues"
+  },
+  "homepage": "https://github.com/wizardzloy/react-img-preload#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.3",
+    "chai": "^3.2.0",
+    "eslint": "^1.4.3",
+    "eslint-config-airbnb": "0.0.8",
+    "eslint-plugin-react": "^3.4.1",
+    "jsdomify": "^0.6.0",
+    "mocha": "^2.3.2",
+    "pre-commit": "^1.1.1",
+    "sinon": "^1.16.1"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
