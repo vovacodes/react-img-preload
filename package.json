@@ -32,7 +32,7 @@
     "eslint": "^1.4.3",
     "eslint-config-airbnb": "0.0.8",
     "eslint-plugin-react": "^3.4.1",
-    "jsdomify": "^0.6.0",
+    "jsdom": "^6.5.1",
     "mocha": "^2.3.2",
     "pre-commit": "^1.1.1",
     "sinon": "^1.16.1"

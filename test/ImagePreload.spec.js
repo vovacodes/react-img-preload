@@ -1,14 +1,14 @@
-import jsdomify from 'jsdomify';
+import dom from './mocks/dom.es';
+import ImageMock from './mocks/Image.es';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import ImageMock from './mocks/Image.es';
 import React from 'react/addons';
 import ImagePreload from '../src/ImagePreload.es'
 
 const TestUtils = React.addons.TestUtils;
 
 // enable DOM
-jsdomify.create('<html><body></body></html>');
+dom.create('<html><body></body></html>');
 global.Image = ImageMock;
 
 class TestComponentWithSingleImage extends React.Component {
