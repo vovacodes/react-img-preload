@@ -1,30 +1,21 @@
 import React from 'react';
 
-export const Constants = {
-  STATUS_PENDING: 'PENDING',
-  STATUS_LOADED: 'LOADED',
-  STATUS_FAILED: 'FAILED'
-};
-
-export default function ImagePreload(Component, imagePreloadPropNames) {
+function ImagePreload(Component, imagePreloadPropNames) {
   class ImagePreloadComponent extends React.Component {
 
     constructor(props) {
       super(props);
       this.images = {};
-    }
-
-    componentDidMount() {
-      const nextState = {};
+      const state = {};
 
       imagePreloadPropNames
           .filter((imageName) => this.props[imageName])
           .forEach((imageName) => {
             this.preloadImage(imageName, this.props[imageName]);
-            nextState[imageName + 'Status'] = Constants.STATUS_PENDING;
+            state[imageName + 'Status'] = ImagePreload.STATUS_PENDING;
           });
 
-      if (!isEmpty(nextState)) this.setState(nextState);
+      this.state = state;
     }
 
     componentWillReceiveProps(nextProps) {
@@ -40,7 +31,7 @@ export default function ImagePreload(Component, imagePreloadPropNames) {
             }
 
             this.preloadImage(imageName, this.props[imageName]);
-            nextState[imageName + 'Status'] = Constants.STATUS_PENDING;
+            nextState[imageName + 'Status'] = ImagePreload.STATUS_PENDING;
           });
 
       if (!isEmpty(nextState)) this.setState(nextState);
@@ -48,13 +39,13 @@ export default function ImagePreload(Component, imagePreloadPropNames) {
 
     onImageLoad(imageName) {
       this.setState({
-        [imageName + 'Status']: Constants.STATUS_LOADED
+        [imageName + 'Status']: ImagePreload.STATUS_LOADED
       });
     }
 
     onImageError(imageName) {
       this.setState({
-        [imageName + 'Status']: Constants.STATUS_FAILED
+        [imageName + 'Status']: ImagePreload.STATUS_FAILED
       });
     }
 
@@ -87,6 +78,12 @@ export default function ImagePreload(Component, imagePreloadPropNames) {
   return ImagePreloadComponent;
 }
 
+ImagePreload.STATUS_PENDING = 'PENDING';
+ImagePreload.STATUS_LOADED = 'LOADED';
+ImagePreload.STATUS_FAILED = 'FAILED';
+
 function isEmpty(object) {
   return !object || Object.keys(object).length === 0;
 }
+
+export default ImagePreload;

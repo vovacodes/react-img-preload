@@ -4,8 +4,8 @@
   "description": "Higher-order React component for image preloading",
   "main": "dist/ImagePreload.js",
   "scripts": {
-    "prepublish": "npm run compile",
-    "compile": "babel src --out-dir dist",
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir dist",
     "lint": "eslint --ext .es ./src",
     "test": "mocha test --compilers js:babel/register"
   },

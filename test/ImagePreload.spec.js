@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import ImageMock from './mocks/Image.es';
 import React from 'react/addons';
-import ImagePreload, { Constants as ImagePreloadConstants } from '../src/ImagePreload.es'
+import ImagePreload from '../src/ImagePreload.es'
 
 const TestUtils = React.addons.TestUtils;
 
@@ -17,13 +17,13 @@ class TestComponentWithSingleImage extends React.Component {
     let { onPending, onLoaded, onError, examineProps, imgStatus } = this.props;
 
     switch (imgStatus) {
-      case ImagePreloadConstants.STATUS_PENDING:
+      case ImagePreload.STATUS_PENDING:
         onPending();
         break;
-      case ImagePreloadConstants.STATUS_LOADED:
+      case ImagePreload.STATUS_LOADED:
         onLoaded();
         break;
-      case ImagePreloadConstants.STATUS_FAILED:
+      case ImagePreload.STATUS_FAILED:
         onError();
         break;
     }
@@ -41,25 +41,25 @@ class TestComponentWithMultipleImages extends React.Component {
     let { onPending1, onPending2, onLoaded1, onLoaded2, onError1, onError2, firstImgStatus, secondImgStatus } = this.props;
 
     switch (firstImgStatus) {
-      case ImagePreloadConstants.STATUS_PENDING:
+      case ImagePreload.STATUS_PENDING:
         onPending1();
         break;
-      case ImagePreloadConstants.STATUS_LOADED:
+      case ImagePreload.STATUS_LOADED:
         onLoaded1();
         break;
-      case ImagePreloadConstants.STATUS_FAILED:
+      case ImagePreload.STATUS_FAILED:
         onError1();
         break;
     }
 
     switch (secondImgStatus) {
-      case ImagePreloadConstants.STATUS_PENDING:
+      case ImagePreload.STATUS_PENDING:
         onPending2();
         break;
-      case ImagePreloadConstants.STATUS_LOADED:
+      case ImagePreload.STATUS_LOADED:
         onLoaded2();
         break;
-      case ImagePreloadConstants.STATUS_FAILED:
+      case ImagePreload.STATUS_FAILED:
         onError2();
         break;
     }
