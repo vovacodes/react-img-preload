@@ -1,6 +1,6 @@
 {
   "name": "react-img-preload",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Higher-order React component for image preloading",
   "main": "dist/ImagePreload.js",
   "scripts": {
