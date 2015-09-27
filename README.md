@@ -1,6 +1,8 @@
 # react-img-preload
 Higher-order React component for image preloading
 
+[![NPM](https://nodei.co/npm/react-img-preload.png)](https://nodei.co/npm/react-img-preload/)
+
 Higher-order React component that allows to easily handle different loading states of images used in your component.
 This could come in handy if you want to show something on the screen while the image is being loaded
 or provide some default image if the desired one is failed to load. There might be different scenarios you could choose.
