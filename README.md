@@ -7,6 +7,14 @@ or provide some default image if the desired one is failed to load. There might 
  
 ## Usage
 
+### Install 
+
+```sh
+npm install --save react-img-preload
+```
+
+### Example
+
 ```js
 // EnhancedComponent.js
 var React = require('react');
@@ -34,11 +42,28 @@ var Component = React.createClass({
   }
 });
 
+// ImagePreload will know that it should preload image with src specified via "img" prop.
+// It will update the loading status of the image through imgStatus prop.
 var EnhancedComponent = ImagePreload(Component, ['img']);
 
 React.render(
-    React.createElement(EnhancedComponent, { img: 'http://38.media.tumblr.com/tumblr_lrbu1l9BJk1qgzxcao1_250.gif' }),
+    <EnhancedComponent img="http://38.media.tumblr.com/tumblr_lrbu1l9BJk1qgzxcao1_250.gif"/>,
     document.getElementById('app')
 );
 ```
 
+## API
+
+### `ImagePreload(Component, imagePreloadPropNames)`
+Wraps `Component` into new component that handles image preloading.
+It doesn't modify the original `Component`, but returns a new one.
+All the props passed to new enhanced component will be passed down to the original `Component`.
+
+All props with the names specified in `imagePreloadPropNames` array will be treated as source urls of images to preload.
+
+The counterpart prop with `Status` postfix will be created for all of them, in order to be able to track the loading status of every individual image. So if `'img'` is specified as a propName for preload, the `imgStatus` prop will be created and passed down to the original `Component` by the wrapper.  
+`imgStatus` may have one of the following self-describing values, that represent current status of image loading:
+
+- `ImagePreload.STATUS_PENDING`
+- `ImagePreload.STATUS_LOADED`
+- `ImagePreload.STATUS_FAILED`
