@@ -1,6 +1,7 @@
 # react-img-preload
 Higher-order React component for image preloading
 
+[![Build Status](https://travis-ci.org/wizardzloy/react-img-preload.svg?branch=master)](https://travis-ci.org/wizardzloy/react-img-preload)
 [![NPM](https://nodei.co/npm/react-img-preload.png)](https://nodei.co/npm/react-img-preload/)
 
 Higher-order React component that allows to easily handle different loading states of images used in your component.
